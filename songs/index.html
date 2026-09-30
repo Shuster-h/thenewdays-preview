@@ -24,13 +24,6 @@ description: "Every The New Days song — singles, videos and lyrics with Japane
 {% endfor -%}
 </ul>
 
-<h2 class="second">{% include bitext.html en='Not out yet' ja='未発表' %}</h2>
-<ul class="unreleased">
-{% for song in site.data.songs.unreleased -%}
-<li><a href="{{ '/songs/' | relative_url }}{{ song.slug }}.html">{{ song.title }}</a></li>
-{% endfor -%}
-</ul>
-
 <p class="more">
 <a href="https://open.spotify.com/artist/1NuL3y1D6OM459F57AKP2g">Spotify</a>
 <a href="https://music.apple.com/jp/artist/the-new-days/1783763405">Apple Music</a>

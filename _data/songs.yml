@@ -47,16 +47,3 @@ released:
     cover: backpack-in-the-sunset.jpg
     youtube: O63T_kL6gBo
     lyrics: true
-
-unreleased:
-  - title: Meet me at 3 O'clock
-    slug: meet-me-at-3-oclock
-    lyrics: true
-
-  - title: Walk Away
-    slug: walk-away
-    lyrics: true
-
-  - title: (Point of) No Return
-    slug: point-of-no-return
-    lyrics: true
