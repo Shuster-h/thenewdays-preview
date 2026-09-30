@@ -11,14 +11,14 @@ description: "Every The New Days song — singles, videos and lyrics with Japane
 <ul class="releases">
 {% for song in site.data.songs.released -%}
 <li>
-<a class="sleeve" href="{{ '/songs/' | relative_url }}{{ song.slug }}/">
+<a class="sleeve" href="{{ '/songs/' | relative_url }}{{ song.slug }}.html">
 {% if song.cover -%}
 <img src="{{ '/images/covers/' | relative_url }}{{ song.cover }}" alt="{{ song.title }}" width="800" height="800" loading="lazy">
 {%- else -%}
 <span class="no-cover">{{ song.title }}</span>
 {%- endif %}
 </a>
-<h3><a href="{{ '/songs/' | relative_url }}{{ song.slug }}/">{{ song.title }}</a></h3>
+<h3><a href="{{ '/songs/' | relative_url }}{{ song.slug }}.html">{{ song.title }}</a></h3>
 <p class="year">{{ song.year }}</p>
 </li>
 {% endfor -%}
@@ -27,7 +27,7 @@ description: "Every The New Days song — singles, videos and lyrics with Japane
 <h2 class="second">{% include bitext.html en='Not out yet' ja='未発表' %}</h2>
 <ul class="unreleased">
 {% for song in site.data.songs.unreleased -%}
-<li><a href="{{ '/songs/' | relative_url }}{{ song.slug }}/">{{ song.title }}</a></li>
+<li><a href="{{ '/songs/' | relative_url }}{{ song.slug }}.html">{{ song.title }}</a></li>
 {% endfor -%}
 </ul>
 

@@ -37,7 +37,7 @@ description: "The New Days — a rock trio from Tokyo. Live dates, songs, lyrics
 <h2>{% include bitext.html en='Latest release' ja='最新曲' %}</h2>
 <article class="release">
 {% if latest.cover %}
-<a href="{{ '/songs/' | relative_url }}{{ latest.slug }}/"><img class="cover" src="{{ '/images/covers/' | relative_url }}{{ latest.cover }}" alt="{{ latest.title }}" width="800" height="800" loading="lazy"></a>
+<a href="{{ '/songs/' | relative_url }}{{ latest.slug }}.html"><img class="cover" src="{{ '/images/covers/' | relative_url }}{{ latest.cover }}" alt="{{ latest.title }}" width="800" height="800" loading="lazy"></a>
 {% endif %}
 <div class="release-text">
 <h3>{{ latest.title }}</h3>
@@ -45,7 +45,7 @@ description: "The New Days — a rock trio from Tokyo. Live dates, songs, lyrics
 <p class="links">
 <a href="https://open.spotify.com/artist/1NuL3y1D6OM459F57AKP2g">Spotify</a>
 <a href="https://music.apple.com/jp/artist/the-new-days/1783763405">Apple Music</a>
-{% if latest.lyrics %}<a href="{{ '/songs/' | relative_url }}{{ latest.slug }}/">{% include bitext.html en='Lyrics' ja='歌詞' %}</a>{% endif %}
+{% if latest.lyrics %}<a href="{{ '/songs/' | relative_url }}{{ latest.slug }}.html">{% include bitext.html en='Lyrics' ja='歌詞' %}</a>{% endif %}
 </p>
 </div>
 </article>
