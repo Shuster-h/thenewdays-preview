@@ -379,33 +379,26 @@ a.button:hover {
 
 /* --- song, bio and contact bodies ---------------------------------------- */
 
-.columns {
-    display: grid;
-    gap: 2.5rem;
+/* English first, then the Japanese, one after the other. Side by side they
+   read like a translation exercise rather than like the band talking. */
+
+.prose,
+.lyric-block {
+    max-width: 34rem;
 }
 
-@media (min-width: 52em) {
-    .columns {
-        grid-template-columns: 1fr 1fr;
-        gap: 3rem;
-    }
-}
-
-.block-label {
-    font: 600 var(--label)/1 var(--sans-serif);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--quiet);
-    padding-bottom: 0.5em;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid var(--line);
+.prose + .prose,
+.lyric-block + .lyric-block {
+    margin-top: 2.75rem;
+    padding-top: 2.25rem;
+    border-top: 1px solid var(--line);
 }
 
 .lyric-block p {
     line-height: 1.75;
 }
 
-.lyric-block p[lang='ja'] {
+.lyric-block[lang='ja'] p {
     font-size: 1rem;
     line-height: 1.95;
 }
@@ -416,7 +409,7 @@ a.button:hover {
     margin: 1.75em 0 0.5em;
 }
 
-.block-label + .part-label {
+.lyric-block > .part-label:first-child {
     margin-top: 0;
 }
 
