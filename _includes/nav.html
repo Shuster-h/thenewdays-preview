@@ -1,0 +1,13 @@
+<header id="masthead">
+<a class="wordmark" href="{{ '/' | relative_url }}">
+<img src="{{ '/images/wordmark.png' | relative_url }}" alt="The New Days" width="1920" height="1080">
+</a>
+<nav>
+<ul>
+<li{% if page.section == 'live' %} class="here"{% endif %}><a href="{{ '/live/' | relative_url }}">Live</a></li>
+<li{% if page.section == 'songs' %} class="here"{% endif %}><a href="{{ '/songs/' | relative_url }}">Songs</a></li>
+<li{% if page.section == 'bio' %} class="here"{% endif %}><a href="{{ '/bio/' | relative_url }}">Bio</a></li>
+<li{% if page.section == 'contact' %} class="here"{% endif %}><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+</ul>
+</nav>
+</header>

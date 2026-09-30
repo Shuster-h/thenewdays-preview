@@ -1,0 +1,61 @@
+# title: Song title as released.
+# slug: Used for the lyrics page URL.
+# year: Release year. Omit for songs that are not out yet.
+# cover: File name inside images/covers/. Omit if there is no artwork.
+# youtube: Video ID, if there is one.
+# lyrics: true when there is a lyrics page for it.
+
+released:
+  - title: Broken Pavement
+    slug: broken-pavement
+    year: 2026
+    cover: broken-pavement.jpg
+    youtube: hmXVmUYQyxE
+    lyrics: true
+
+  - title: Silent Hearts
+    slug: silent-hearts
+    year: 2026
+    cover: silent-hearts.jpg
+    youtube: -vOaU3Hcq8Q
+    lyrics: true
+
+  - title: The Place I Used to Hide
+    slug: the-place-i-used-to-hide
+    year: 2025
+    cover: the-place-i-used-to-hide.jpg
+    youtube: SpPUAmi3UXk
+    lyrics: true
+
+  - title: Gone Like the Wind
+    slug: gone-like-the-wind
+    year: 2025
+    cover: gone-like-the-wind.jpg
+    youtube: y1rMVJAIG8Q
+    lyrics: true
+
+  - title: Lemonade
+    slug: lemonade
+    year: 2025
+    youtube: cqH2Ng1XA80
+    lyrics: true
+
+  - title: Backpack in the Sunset
+    slug: backpack-in-the-sunset
+    year: 2024
+    cover: backpack-in-the-sunset.jpg
+    youtube: O63T_kL6gBo
+    lyrics: true
+
+unreleased:
+  - title: Meet me at 3 O'clock
+    slug: meet-me-at-3-oclock
+    lyrics: true
+
+  - title: Walk Away
+    slug: walk-away
+    lyrics: true
+
+  - title: (Point of) No Return
+    slug: point-of-no-return
+    lyrics: true

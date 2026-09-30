@@ -1,0 +1,44 @@
+---
+layout: default
+title: Live
+section: live
+description: "Every upcoming The New Days show, with times, ticket prices and who else is playing. The New Days のライブ日程・時間・料金・対バン。"
+---
+
+<section id="live">
+<h2>{% include bitext.html en='Live' ja='ライブ' %}</h2>
+
+{% for show in site.data.shows -%}
+<article class="show" id="{{ show.date | date: '%Y-%m-%d' }}">
+<p class="date">{% include show/date.html date=show.date %}</p>
+<p class="venue">{% include optional_link.html href=show.venue_url content=show.venue %}
+<span class="location">{% include bitext.html en=show.location.en ja=show.location.ja %}</span></p>
+{% if show.event -%}
+<p class="event">{{ show.event }}</p>
+{% endif -%}
+{% if show.times -%}
+<p class="times">OPEN {{ show.times.open }} / START {{ show.times.start }}
+{%- if show.times.stage %} / The New Days {{ show.times.stage }}–{% endif %}</p>
+{% endif -%}
+{% if show.tickets -%}
+<p class="tickets">{% include bitext.html en=show.tickets.en ja=show.tickets.ja %}</p>
+{% endif -%}
+{% if show.lineup -%}
+<p class="lineup">with {{ show.lineup }}</p>
+{% endif -%}
+{% if show.extra -%}
+<p class="extra">{{ show.extra }}</p>
+{% endif -%}
+<p class="links">
+{% if show.ticket_url -%}
+<a href="{{ show.ticket_url }}">{% include bitext.html en='Tickets' ja='チケット' %}</a>
+{%- else -%}
+<a href="https://instagram.com/the.new.days">{% include bitext.html en='Tickets by DM' ja='DMでチケット予約' %}</a>
+{%- endif %}
+{% if show.show_url -%}
+<a href="{{ show.show_url }}">{% include bitext.html en='At the venue' ja='ハコの公演ページ' %}</a>
+{%- endif %}
+</p>
+</article>
+{% endfor -%}
+</section>

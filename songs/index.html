@@ -1,0 +1,39 @@
+---
+layout: default
+title: Songs
+section: songs
+description: "Every The New Days song — singles, videos and lyrics with Japanese translations. The New Days の全曲、動画、歌詞と和訳。"
+---
+
+<section id="songs">
+<h2>{% include bitext.html en='Songs' ja='楽曲' %}</h2>
+
+<ul class="releases">
+{% for song in site.data.songs.released -%}
+<li>
+<a class="sleeve" href="{{ '/songs/' | relative_url }}{{ song.slug }}/">
+{% if song.cover -%}
+<img src="{{ '/images/covers/' | relative_url }}{{ song.cover }}" alt="{{ song.title }}" width="800" height="800" loading="lazy">
+{%- else -%}
+<span class="no-cover">{{ song.title }}</span>
+{%- endif %}
+</a>
+<h3><a href="{{ '/songs/' | relative_url }}{{ song.slug }}/">{{ song.title }}</a></h3>
+<p class="year">{{ song.year }}</p>
+</li>
+{% endfor -%}
+</ul>
+
+<h2 class="second">{% include bitext.html en='Not out yet' ja='未発表' %}</h2>
+<ul class="unreleased">
+{% for song in site.data.songs.unreleased -%}
+<li><a href="{{ '/songs/' | relative_url }}{{ song.slug }}/">{{ song.title }}</a></li>
+{% endfor -%}
+</ul>
+
+<p class="more">
+<a href="https://open.spotify.com/artist/1NuL3y1D6OM459F57AKP2g">Spotify</a>
+<a href="https://music.apple.com/jp/artist/the-new-days/1783763405">Apple Music</a>
+<a href="https://www.youtube.com/channel/UCcC7ZLQEEbFggrMweJEHKHA">YouTube</a>
+</p>
+</section>

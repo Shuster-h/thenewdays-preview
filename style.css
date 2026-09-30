@@ -1,0 +1,505 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=EB+Garamond:ital@0;1&display=swap');
+
+/* ---------------------------------------------------------------------------
+   The New Days — structure proposal.
+
+   Keeps what the current site already had: Barlow and EB Garamond, the red
+   section label, light-dark() theming, the bitext separator. What is new is a
+   fixed header with the menu, a hero image, and one type scale that every
+   size on the site comes from.
+   --------------------------------------------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --display: clamp(2rem, 6vw, 3.25rem);
+    --title: clamp(1.375rem, 3vw, 1.75rem);
+    --body: 1.0625rem;
+    --small: 0.9375rem;
+    --label: 0.75rem;
+
+    --sans-serif: Barlow, 'Helvetica Neue', Arial, sans-serif;
+    --serif: 'EB Garamond', Georgia, serif;
+    --japanese: 'Hiragino Kaku Gothic ProN', 'Yu Gothic', Meiryo, sans-serif;
+
+    --ink: light-dark(#1a1a1a, #eee);
+    --quiet: light-dark(#767676, #999);
+    --line: light-dark(#e2e2e2, #333);
+    --ground: light-dark(#fff, #111);
+    --accent: #f22;
+
+    color-scheme: light dark;
+}
+
+body {
+    background: var(--ground);
+    color: var(--ink);
+    font: var(--body)/1.5 var(--serif);
+}
+
+:lang(ja) {
+    font-family: var(--japanese);
+}
+
+a {
+    color: inherit;
+    text-underline-offset: 0.15em;
+    text-decoration-thickness: from-font;
+}
+
+/* --- header -------------------------------------------------------------- */
+
+#masthead {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1.5rem;
+    padding: 0.75rem 1.25rem;
+    background: color-mix(in srgb, var(--ground) 92%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+}
+
+#masthead .wordmark img {
+    display: block;
+    width: auto;
+    height: 1.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    #masthead .wordmark img {
+        filter: invert(1);
+    }
+}
+
+#masthead nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    list-style: none;
+}
+
+#masthead nav a {
+    font: 600 var(--label)/1 var(--sans-serif);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--quiet);
+}
+
+#masthead nav a:hover {
+    color: var(--ink);
+}
+
+#masthead .here a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+}
+
+@media (min-width: 40em) {
+    #masthead {
+        justify-content: space-between;
+        padding-inline: 2rem;
+    }
+
+    #masthead .wordmark img {
+        height: 2.25rem;
+    }
+}
+
+/* --- page furniture ------------------------------------------------------ */
+
+main > section {
+    max-width: 62rem;
+    margin-inline: auto;
+    padding: 2.5rem 1.25rem;
+}
+
+main > #hero {
+    max-width: none;
+    padding: 0;
+}
+
+#hero img {
+    display: block;
+    width: 100%;
+    max-height: 70vh;
+    object-fit: cover;
+}
+
+h2 {
+    color: #fff;
+    background: var(--accent);
+    display: inline-block;
+    font: 600 var(--label)/1 var(--sans-serif);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    padding: 0.45em 0.6em 0.5em;
+    border-radius: 0.4em;
+}
+
+h2 .bitext-separator,
+h2 [lang='ja'] {
+    display: none;
+}
+
+h3.second {
+    font: 600 var(--label)/1 var(--sans-serif);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--quiet);
+    margin: 2.5rem 0 1rem;
+}
+
+h2.second {
+    margin-top: 2.5rem;
+}
+
+@media (min-width: 40em) {
+    main > section {
+        padding-inline: 2rem;
+    }
+}
+
+/* --- shows --------------------------------------------------------------- */
+
+.show {
+    padding-block: 1.5rem;
+    border-top: 1px solid var(--line);
+}
+
+#next-live .show:first-of-type,
+#live .show:first-of-type {
+    border-top: none;
+    padding-top: 0;
+}
+
+.show .date {
+    font: 600 var(--display)/1 var(--sans-serif);
+    font-variant-east-asian: proportional-width;
+}
+
+.show .date strong {
+    margin-right: 0.15em;
+}
+
+.show .venue {
+    font-size: var(--title);
+}
+
+.show .location {
+    font-size: var(--small);
+    color: var(--quiet);
+}
+
+.show .location::before {
+    content: ' / ';
+}
+
+.show .event {
+    font-style: italic;
+    margin-top: 0.4em;
+}
+
+.show .times,
+.show .tickets,
+.show .lineup,
+.show .extra {
+    font-family: var(--sans-serif);
+    font-size: var(--small);
+    color: var(--quiet);
+    margin-top: 0.25em;
+}
+
+.show .times {
+    margin-top: 0.5em;
+}
+
+.show .tickets .bitext-separator {
+    display: none;
+}
+
+.show .tickets [lang='ja'] {
+    display: block;
+}
+
+/* --- buttons ------------------------------------------------------------- */
+
+.links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.links a,
+a.button {
+    display: inline-block;
+    font: 600 var(--small)/1 var(--sans-serif);
+    text-decoration: none;
+    padding: 0.7em 1em;
+    border: 1px solid var(--line);
+    border-radius: 0.4em;
+}
+
+.links a:hover,
+a.button:hover {
+    border-color: var(--accent);
+}
+
+.links a:first-child {
+    color: #fff;
+    background: var(--accent);
+    border-color: var(--accent);
+}
+
+.links .bitext-separator {
+    margin-inline: 0.15em;
+}
+
+/* --- latest release ------------------------------------------------------ */
+
+.release {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.release .cover,
+.cover {
+    display: block;
+    width: min(16rem, 60vw);
+    height: auto;
+    border-radius: 0.25rem;
+}
+
+.release-text h3 {
+    font-size: var(--title);
+    font-weight: 400;
+}
+
+.release-text .year {
+    font: var(--small)/1.4 var(--sans-serif);
+    color: var(--quiet);
+    margin-top: 0.2em;
+}
+
+/* --- songs --------------------------------------------------------------- */
+
+.releases {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    gap: 1.5rem 1.25rem;
+    list-style: none;
+}
+
+.releases .sleeve {
+    display: block;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 0.25rem;
+    border: 1px solid var(--line);
+}
+
+.releases .sleeve img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.releases .no-cover {
+    display: grid;
+    place-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 0.5rem;
+    text-align: center;
+    font: 600 var(--small)/1.2 var(--sans-serif);
+    color: var(--quiet);
+}
+
+.releases h3 {
+    font-size: var(--body);
+    font-weight: 400;
+    margin-top: 0.5em;
+}
+
+.releases h3 a {
+    text-decoration: none;
+}
+
+.releases h3 a:hover {
+    text-decoration: underline;
+}
+
+.releases .year {
+    font: var(--small)/1.3 var(--sans-serif);
+    color: var(--quiet);
+}
+
+.unreleased {
+    list-style: none;
+}
+
+.unreleased li {
+    font-size: var(--title);
+    padding-block: 0.35em;
+    border-bottom: 1px solid var(--line);
+}
+
+.unreleased a {
+    text-decoration: none;
+}
+
+.unreleased a:hover {
+    text-decoration: underline;
+}
+
+/* --- song, bio and contact bodies ---------------------------------------- */
+
+.columns {
+    display: grid;
+    gap: 2.5rem;
+}
+
+@media (min-width: 52em) {
+    .columns {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}
+
+.block-label {
+    font: 600 var(--label)/1 var(--sans-serif);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--quiet);
+    padding-bottom: 0.5em;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+}
+
+.lyric-block p {
+    line-height: 1.75;
+}
+
+.lyric-block p[lang='ja'] {
+    font-size: 1rem;
+    line-height: 1.95;
+}
+
+.lyric-block .part-label {
+    font: var(--small)/1 var(--sans-serif);
+    color: var(--quiet);
+    margin: 1.75em 0 0.5em;
+}
+
+.block-label + .part-label {
+    margin-top: 0;
+}
+
+.prose p + p {
+    margin-top: 1em;
+}
+
+.prose[lang='ja'] p {
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+#song > iframe,
+#song > .cover {
+    margin-bottom: 2rem;
+}
+
+.members {
+    list-style: none;
+}
+
+.members li {
+    font-size: var(--title);
+    padding-block: 0.3em;
+}
+
+.members .part {
+    font: var(--small)/1 var(--sans-serif);
+    color: var(--quiet);
+}
+
+/* --- videos -------------------------------------------------------------- */
+
+iframe {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0.75rem;
+    border: none;
+    border-radius: 0.25rem;
+}
+
+.half {
+    display: grid;
+    gap: 0.75rem;
+}
+
+@media (min-width: 48em) {
+    .half {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.more {
+    font: var(--small)/1.4 var(--sans-serif);
+    margin-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.more .bitext-separator {
+    margin-inline: 0.15em;
+}
+
+/* --- footer -------------------------------------------------------------- */
+
+footer {
+    max-width: 62rem;
+    margin-inline: auto;
+    padding: 2.5rem 1.25rem 4rem;
+    border-top: 1px solid var(--line);
+    font-family: var(--sans-serif);
+    font-size: var(--small);
+    color: var(--quiet);
+}
+
+footer .social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    list-style: none;
+    margin-bottom: 1rem;
+}
+
+footer .colophon {
+    font-size: var(--label);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+@media (min-width: 40em) {
+    footer {
+        padding-inline: 2rem;
+    }
+}
